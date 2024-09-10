@@ -86,7 +86,10 @@ header nav li a:hover {
 header nav li a::before {
   content: "\22c6\0020";
 }
-
+/* PRENDE IL FIGLIO ADIACENTE FIGLIO CHE TROVA UGUALE AL TAG CHE HO MESSO */
+.clearfix + img {
+  width: 90%;
+}
 /* MAIN */
 main {
   background-color: #fff;
@@ -117,7 +120,7 @@ section h2 {
   padding: 0px 1em;
   position: absolute;
   top: -10px;
-  left: 50%;
+  left: 15%;
   transform: translateX(-50%);
 }
 
@@ -319,6 +322,7 @@ aside h2 {
   margin-bottom: 1em;
 }
 aside div {
+  position: relative;
   background-color: #e3e3e3;
   border: 1px solid #c3c3c3;
   margin-bottom: 1em;
@@ -401,7 +405,7 @@ footer a {
 .toTop {
   font-size: 35px;
   color: violet;
-  right: 0px;
+  right: -10px;
   position: fixed;
   bottom: 20px;
   z-index: 1000;
@@ -418,7 +422,7 @@ footer a {
   font-size: 35px;
   color: darkblue;
   position: fixed;
-  right: 0px;
+  right: -10px;
   bottom: 200px;
   z-index: 1000;
   background-color: white;
@@ -433,7 +437,7 @@ footer a {
   font-size: 35px;
   color: darkblue;
   position: fixed;
-  right: 0px;
+  right: -10px;
   bottom: 110px;
   z-index: 1000;
   background-color: white;
@@ -443,4 +447,58 @@ footer a {
   cursor: pointer;
   width: 50px;
   height: 50px;
+}
+.fixedButton-social,
+.fixedButton-calendar,
+.toTop {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5); /* Sfondo bianco trasparente */
+  border: 2px solid white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Arrotonda gli angoli */
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px; /* Centra verticalmente l'icona */
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .fixedButton-social,
+  .fixedButton-calendar,
+  .toTop {
+    position: fixed;
+    bottom: 10px;
+    right: 0px;
+    margin-bottom: 10px; /* Spazio tra i pulsanti */
+  }
+
+  .fixedButton-social {
+    bottom: 60px; /* Il primo pulsante è leggermente più in alto */
+  }
+
+  .fixedButton-calendar {
+    bottom: 120px;
+  }
+
+  .toTop {
+    bottom: 180px;
+  }
+}
+@media (min-width: 700px) {
+  .fixedButton-social,
+  .fixedButton-calendar {
+    position: fixed;
+    top: 20px; /* Posiziona in alto */
+    right: 20px; /* Mantiene a destra */
+    margin-bottom: 10px; /* Spazio tra le due icone */
+  }
+
+  .fixedButton-calendar {
+    top: 80px; /* Posiziona il calendario leggermente più in basso rispetto al social */
+  }
+
+  .toTop {
+    bottom: 20px; /* Mantiene il pulsante "Torna in cima" in basso a destra */
+    right: 20px;
+  }
 }
